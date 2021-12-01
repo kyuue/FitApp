@@ -1,5 +1,6 @@
 package com.example.fitapp
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,25 +15,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fitapp.databinding.ContentMainBinding
 import android.content.Intent
 import android.view.View
+import com.example.fitapp.databinding.EgitmenEkleBinding
 
 
-class MainActivity : AppCompatActivity() {
+class EgitmenEkleActivity : Activity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ContentMainBinding
+    private lateinit var binding: EgitmenEkleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ContentMainBinding.inflate(layoutInflater)
+        binding = EgitmenEkleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.goToEgitmenEkleButton?.setOnClickListener {
-            val intent = Intent(this, EgitmenEkleActivity::class.java)
-            // To pass any data to next activity
-            //intent.putExtra("keyIdentifier", value)
-            // start your next activity
-            startActivity(intent)
-        }
     }
+
 
 }
