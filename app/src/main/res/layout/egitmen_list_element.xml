@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/EgitmenListElement"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp"
+    tools:showIn="@layout/egitmen_sec">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/circularImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/avatar_1"
+            app:civ_border_color="#3f51b5"
+            app:civ_border_width="4dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#3f51b5"
+            app:civ_shadow_radius="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameOfEgitmen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Yusuf Serdar Yazıcıoğlu"
+            app:layout_constraintEnd_toEndOf="@+id/circularImageView"
+            app:layout_constraintStart_toStartOf="@+id/circularImageView"
+            app:layout_constraintTop_toBottomOf="@+id/circularImageView" />
+
+        <TextView
+            android:id="@+id/ucretOfEgitmen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Aylık 2000 TL"
+            app:layout_constraintEnd_toEndOf="@+id/nameOfEgitmen"
+            app:layout_constraintStart_toStartOf="@+id/nameOfEgitmen"
+            app:layout_constraintTop_toBottomOf="@+id/nameOfEgitmen" />
+
+        <TextView
+            android:id="@+id/descriptionOfEgitmen"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Yaşam mottom haline getirdiğim spor hayatımı, insanların hayatına dokunmak adına meslek edindim."
+            app:layout_constraintStart_toEndOf="@+id/circularImageView"
+            app:layout_constraintTop_toTopOf="@+id/circularImageView" />
+
+        <Button
+            android:id="@+id/egitmeniAraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Eğitmeni Ara"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

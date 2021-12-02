@@ -24,11 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".EgitmenEkleActivity"
-            android:label="@string/app_name">
-        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.MANAGE_MEDIA" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 
 </manifest>
