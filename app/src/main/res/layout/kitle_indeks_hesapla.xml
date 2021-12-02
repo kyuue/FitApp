@@ -70,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="cm"
-        app:layout_constraintStart_toEndOf="@+id/boyTextBox"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/boyTextBox"
+        app:layout_constraintStart_toEndOf="@+id/boyTextBox" />
 
     <EditText
         android:id="@+id/kiloTextBox"
@@ -100,10 +100,10 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="5dp"
         android:text="kg"
-        app:layout_constraintStart_toEndOf="@+id/boyTextBox"
-        tools:layout_editor_absoluteY="359dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/kiloTextBox"
+        app:layout_constraintStart_toEndOf="@+id/kiloTextBox" />
 
     <Button
         android:id="@+id/hesaplaButton"
