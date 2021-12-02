@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_mainMenuFragment_to_besinEkleFragment"
             app:destination="@id/besinEkleFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_kitleIndexFragment"
+            app:destination="@id/kitleIndexFragment" />
     </fragment>
     <fragment
         android:id="@+id/egitmenSecFragment"
@@ -40,6 +43,14 @@
         android:label="BesinEkleFragment" >
         <action
             android:id="@+id/action_besinEkleFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kitleIndexFragment"
+        android:name="com.example.fitapp.KitleIndexFragment"
+        android:label="KitleIndexFragment" >
+        <action
+            android:id="@+id/action_kitleIndexFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
     </fragment>
 </navigation>

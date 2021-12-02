@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_weight="1"
+        android:text="Cinsiyet"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroup2"
+        app:layout_constraintTop_toTopOf="@+id/radioGroup2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/kadinRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="Kadın" />
+
+        <RadioButton
+            android:id="@+id/erkekRadioButton"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="Erkek" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Boy"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/boyTextBox"
+        app:layout_constraintEnd_toStartOf="@+id/boyTextBox" />
+
+    <EditText
+        android:id="@+id/boyTextBox"
+        android:layout_width="176dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="185"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="cm"
+        app:layout_constraintStart_toEndOf="@+id/boyTextBox"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <EditText
+        android:id="@+id/kiloTextBox"
+        android:layout_width="176dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="70"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Kilo"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/kiloTextBox"
+        app:layout_constraintEnd_toStartOf="@+id/kiloTextBox" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="kg"
+        app:layout_constraintStart_toEndOf="@+id/boyTextBox"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <Button
+        android:id="@+id/hesaplaButton"
+        android:layout_width="183dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="32dp"
+        android:text="Hesapla"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kiloTextBox" />
+</androidx.constraintlayout.widget.ConstraintLayout>

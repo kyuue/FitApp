@@ -18,12 +18,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.fitapp.databinding.EgitmenEkleBinding
+import com.example.fitapp.databinding.KitleIndeksHesaplaBinding
 import com.example.fitapp.databinding.MainMenuBinding
 
 
-class MainMenuFragment : Fragment(R.layout.main_menu) {
+class KitleIndexFragment : Fragment(R.layout.kitle_indeks_hesapla) {
 
-    private var _binding: MainMenuBinding? = null
+    private var _binding: KitleIndeksHesaplaBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,7 +35,7 @@ class MainMenuFragment : Fragment(R.layout.main_menu) {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = MainMenuBinding.inflate(inflater, container, false)
+        _binding = KitleIndeksHesaplaBinding.inflate(inflater, container, false)
 
         return binding.root
 
@@ -44,21 +45,28 @@ class MainMenuFragment : Fragment(R.layout.main_menu) {
 
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.goToEgitmenEkleButton?.setOnClickListener{
-            findNavController().navigate(R.id.egitmenEkleFragment)
+        binding.hesaplaButton.setOnClickListener{
+
+            if(!binding.kadinRadioButton.isChecked && !binding.erkekRadioButton.isChecked)
+            {
+                val newFragment =
+                    InfoDialogFragment("Lütfen cinsiyetinizi seçiniz")
+                newFragment.show(parentFragmentManager, "info")
+                return@setOnClickListener
+            }
+
+            var boy = binding.boyTextBox.text.toString().toFloat() / 100.0f
+
+            var kilo = binding.kiloTextBox.text.toString().toFloat()
+
+            val indeks = kilo / (boy * boy)
+
+            val newFragment =
+                InfoDialogFragment("Vücut kitle endeksiniz: $indeks")
+            newFragment.show(parentFragmentManager, "info")
+
         }
 
-        binding?.goToEgitmenSec?.setOnClickListener{
-            findNavController().navigate(R.id.egitmenSecFragment)
-        }
-
-        binding?.goToBesinEkleButton?.setOnClickListener{
-            findNavController().navigate(R.id.besinEkleFragment)
-        }
-
-        binding?.goToVucutKitleIndeksiHesaplaButton?.setOnClickListener{
-            findNavController().navigate(R.id.kitleIndexFragment)
-        }
     }
 
     override fun onDestroyView() {
