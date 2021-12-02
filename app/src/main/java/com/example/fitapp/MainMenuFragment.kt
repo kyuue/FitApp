@@ -51,6 +51,10 @@ class MainMenuFragment : Fragment(R.layout.main_menu) {
         binding?.goToEgitmenSec?.setOnClickListener{
             findNavController().navigate(R.id.egitmenSecFragment)
         }
+
+        binding?.goToBesinEkleButton?.setOnClickListener{
+            findNavController().navigate(R.id.besinEkleFragment)
+        }
     }
 
     override fun onDestroyView() {

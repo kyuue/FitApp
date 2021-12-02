@@ -55,12 +55,17 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAM
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
+        db.execSQL("DROP TABLE IF EXISTS egitmenler")
+        db.execSQL("DROP TABLE IF EXISTS besinler")
+        db.execSQL("DROP TABLE IF EXISTS BesinType")
+        db.execSQL("DROP TABLE IF EXISTS UnitType")
 
+        onCreate(db)
     }
 
     companion object {
         // If you change the database schema, you must increment the database version.
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 3
         const val DATABASE_NAME = "FitApp.db"
     }
 }
