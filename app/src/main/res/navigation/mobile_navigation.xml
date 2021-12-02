@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainMenuFragment_to_kitleIndexFragment"
             app:destination="@id/kitleIndexFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_kaloriHesapFragment"
+            app:destination="@id/kaloriHesapFragment" />
     </fragment>
     <fragment
         android:id="@+id/egitmenSecFragment"
@@ -51,6 +54,14 @@
         android:label="KitleIndexFragment" >
         <action
             android:id="@+id/action_kitleIndexFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kaloriHesapFragment"
+        android:name="com.example.fitapp.KaloriHesapFragment"
+        android:label="KaloriHesapFragment" >
+        <action
+            android:id="@+id/action_kaloriHesapFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
     </fragment>
 </navigation>

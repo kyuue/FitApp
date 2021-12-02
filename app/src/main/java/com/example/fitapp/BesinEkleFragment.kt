@@ -90,10 +90,13 @@ class BesinEkleFragment : Fragment(R.layout.besin_ekle) {
             val unit =
                 if (binding?.birimAdetRadioButton.isChecked) "U" else if (binding?.birimGramRadioButton.isChecked) "G" else "L"
 
+            var cal = binding?.kaloriMiktariTextBox.text.toString().toInt()
+
             val contentValues = ContentValues()
             contentValues.put("name", binding?.besinIsmiTextBox?.text?.toString())
             contentValues.put("type", type)
             contentValues.put("unit", unit)
+            contentValues.put("cal", cal)
 
             val rowId = db.insert("besinler", null, contentValues)
 

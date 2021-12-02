@@ -59,6 +59,10 @@ class MainMenuFragment : Fragment(R.layout.main_menu) {
         binding?.goToVucutKitleIndeksiHesaplaButton?.setOnClickListener{
             findNavController().navigate(R.id.kitleIndexFragment)
         }
+
+        binding?.goToKaloriHesaplaButton?.setOnClickListener{
+            findNavController().navigate(R.id.kaloriHesapFragment)
+        }
     }
 
     override fun onDestroyView() {
