@@ -65,7 +65,17 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
             listElementBinding.nameOfBesin.text = "$unit $name"
 
             listElementBinding.addToListButton.setOnClickListener {
-                eklenenBesinListesi.add(besinObject)
+
+                val besin = eklenenBesinListesi.find { it.name == besinObject.name }
+
+                if (besin == null)
+                {
+                    eklenenBesinListesi.add(besinObject)
+                }
+                else
+                {
+                    besin.count++
+                }
 
                 UpdateEklenenBesinListesi()
             }
@@ -157,7 +167,12 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
 
             listElementBinding.calCount.text = "$cal  cal"
 
+            listElementBinding.adetTextBox.setText(besin.count.toString())
+
             listElementBinding.removeFromListButton.setOnClickListener {
+
+                besin.count = 1
+
                 eklenenBesinListesi.remove(besin)
 
                 UpdateEklenenBesinListesi()
