@@ -50,7 +50,7 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
 
         for(besinObject in besinListesi) {
 
-            if(!binding.searchTextBox.text.isNullOrEmpty() && !besinObject.name.contains(binding.searchTextBox.text))
+            if(!binding.searchTextBox.text.isNullOrEmpty() && !besinObject.name.lowercase().contains(binding.searchTextBox.text.toString().lowercase()))
                 continue
 
             val listElementBinding =
