@@ -104,7 +104,7 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
 
                 var unit = cursor.getString(cursor.getColumnIndex("unit"))
 
-                unit = if (unit == "U") "1 adet" else if (unit == "G") "100 gr" else "100 ml"
+                //unit = if (unit == "U") "1 adet" else if (unit == "G") "100 gr" else "100 ml"
 
                 var cal = cursor.getInt(cursor.getColumnIndex("cal"))
 
