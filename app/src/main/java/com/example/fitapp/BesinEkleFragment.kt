@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.fitapp.databinding.BesinEkleBinding
 import com.example.fitapp.databinding.EgitmenEkleBinding
 import com.example.fitapp.databinding.MainMenuBinding
+import java.sql.SQLException
 
 
 class BesinEkleFragment : Fragment(R.layout.besin_ekle) {
@@ -83,33 +84,40 @@ class BesinEkleFragment : Fragment(R.layout.besin_ekle) {
                 return@setOnClickListener;
             }
 
-            val db = MainActivity.DatabaseObject.writableDatabase
+            //val db = MainActivity.DatabaseObject.writableDatabase
 
-            val type = if (binding?.icecekRadioButton.isChecked) "I" else "Y"
+            try {
 
-            val unit =
-                if (binding?.birimAdetRadioButton.isChecked) "U" else if (binding?.birimGramRadioButton.isChecked) "G" else "L"
 
-            var cal = binding?.kaloriMiktariTextBox.text.toString().toInt()
+                val con = DatabaseHelper.createConnection()
 
-            val contentValues = ContentValues()
-            contentValues.put("name", binding?.besinIsmiTextBox?.text?.toString())
-            contentValues.put("type", type)
-            contentValues.put("unit", unit)
-            contentValues.put("cal", cal)
+                val preparedStatement =
+                    con?.prepareStatement("INSERT INTO besinler(name, type, unit, cal) VALUES(?, ?, ?, ?)")
 
-            val rowId = db.insert("besinler", null, contentValues)
 
-            if(rowId != -1L)
-            {
+                val type = if (binding?.icecekRadioButton.isChecked) "I" else "Y"
+
+                val unit =
+                    if (binding?.birimAdetRadioButton.isChecked) "U" else if (binding?.birimGramRadioButton.isChecked) "G" else "L"
+
+                var cal = binding?.kaloriMiktariTextBox.text.toString().toInt()
+
+                preparedStatement?.setString(1, binding?.besinIsmiTextBox?.text?.toString())
+                preparedStatement?.setString(2, type)
+                preparedStatement?.setString(3, unit)
+                preparedStatement?.setInt(4, cal)
+
+                preparedStatement?.execute()
+
+                preparedStatement?.close()
+
+                con?.close()
+
                 val newFragment =
                     InfoDialogFragment("Besin başarıyla eklendi.")
                 newFragment.show(parentFragmentManager, "info")
-            }
-            else
-            {
-                val newFragment =
-                    InfoDialogFragment("Besin eklenemedi.")
+            } catch (e: SQLException) {
+                val newFragment = InfoDialogFragment(e.toString())
                 newFragment.show(parentFragmentManager, "info")
             }
         }

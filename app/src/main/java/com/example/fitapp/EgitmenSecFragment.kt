@@ -55,6 +55,7 @@ class EgitmenSecFragment : Fragment(R.layout.egitmen_sec) {
 
         try {
 
+            /*
             val db = MainActivity.DatabaseObject.readableDatabase
 
             val cursor = db.query(
@@ -66,24 +67,31 @@ class EgitmenSecFragment : Fragment(R.layout.egitmen_sec) {
                 null,                   // don't filter by row groups
                 null               // The sort order
             )
+            */
+
+            val con = DatabaseHelper.createConnection()
+
+            val stmt = con?.prepareStatement("SELECT * FROM egitmenler")
+
+            val cursor = stmt?.executeQuery()
 
 
-            while(cursor.moveToNext()) {
+            while(cursor?.next() == true) {
                 val listElementBinding = EgitmenListElementBinding.inflate(layoutInflater, binding!!.EgitmenContainer, true)
 
-                val name = cursor.getString(cursor.getColumnIndex("name")) + " " + cursor.getString(cursor.getColumnIndex("surname"))
+                val name = cursor.getString(cursor.findColumn("name")) + " " + cursor.getString(cursor.findColumn("surname"))
 
                 listElementBinding.nameOfEgitmen.text = name
 
-                listElementBinding.descriptionOfEgitmen.text = cursor.getString(cursor.getColumnIndex("about"))
+                listElementBinding.descriptionOfEgitmen.text = cursor.getString(cursor.findColumn("about"))
 
-                listElementBinding.ucretOfEgitmen.text = cursor.getInt(cursor.getColumnIndex("price")).toString() + " TL"
+                listElementBinding.ucretOfEgitmen.text = cursor.getInt(cursor.findColumn("price")).toString() + " TL"
 
-                val bytesImage = cursor.getBlob(cursor.getColumnIndex("photo"))
+                val bytesImage = cursor.getBlob(cursor.findColumn("photo")).binaryStream.readBytes()
                 val bitmapImage = BitmapFactory.decodeByteArray(bytesImage, 0, bytesImage.size)
                 listElementBinding.circularImageView.setImageBitmap(bitmapImage)
 
-                val telephone = cursor.getString(cursor.getColumnIndex("tel"))
+                val telephone = cursor.getString(cursor.findColumn("tel"))
 
                 listElementBinding.egitmeniAraButton.setOnClickListener{
                     val dialIntent = Intent(Intent.ACTION_DIAL)
@@ -92,7 +100,9 @@ class EgitmenSecFragment : Fragment(R.layout.egitmen_sec) {
                 }
             }
 
-            cursor.close()
+            cursor?.close()
+
+            con?.close()
 
         } catch (e: Exception) {
             val newFragment = InfoDialogFragment(e.toString())

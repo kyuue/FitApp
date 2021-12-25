@@ -93,6 +93,7 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
 
         try {
 
+            /*
             val db = MainActivity.DatabaseObject.readableDatabase
 
             val cursor = db.query(
@@ -104,26 +105,34 @@ class KaloriHesapFragment : Fragment(R.layout.main_menu) {
                 null,                   // don't filter by row groups
                 null               // The sort order
             )
+             */
+            val con = DatabaseHelper.createConnection()
+
+            val stmt = con?.prepareStatement("SELECT * FROM besinler")
+
+            val cursor = stmt?.executeQuery()
 
             besinListesi = mutableListOf<Besin>()
 
-            while (cursor.moveToNext()) {
+            while (cursor?.next() == true) {
 
 
-                val name = cursor.getString(cursor.getColumnIndex("name"))
+                val name = cursor.getString(cursor.findColumn("name"))
 
-                var unit = cursor.getString(cursor.getColumnIndex("unit"))
+                var unit = cursor.getString(cursor.findColumn("unit"))
 
                 //unit = if (unit == "U") "1 adet" else if (unit == "G") "100 gr" else "100 ml"
 
-                var cal = cursor.getInt(cursor.getColumnIndex("cal"))
+                var cal = cursor.getInt(cursor.findColumn("cal"))
 
                 var besinObject = Besin(name, unit, cal)
 
                 besinListesi.add(besinObject)
             }
 
-            cursor.close()
+            cursor?.close()
+
+            con?.close()
 
         } catch (e: Exception) {
             val newFragment = InfoDialogFragment(e.toString())

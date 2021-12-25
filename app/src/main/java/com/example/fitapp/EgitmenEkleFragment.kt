@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment
 import com.example.fitapp.databinding.EgitmenEkleBinding
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
+import java.sql.Blob
+import java.sql.SQLException
 
 
 class EgitmenEkleFragment : Fragment(R.layout.egitmen_ekle) {
@@ -198,21 +200,56 @@ class EgitmenEkleFragment : Fragment(R.layout.egitmen_ekle) {
                 return@setOnClickListener;
             }
 
+            try {
+                val con = DatabaseHelper.createConnection()
+
+                val preparedStatement = con?.prepareStatement("INSERT INTO egitmenler(name, surname, tel, about, price, photo) VALUES(?, ?, ?, ?, ?, ?)")
+
+                val contents = getEgitmenContentValues()
+
+                preparedStatement?.setString(1, contents["name"] as String?)
+                preparedStatement?.setString(2, contents["surname"] as String?)
+                preparedStatement?.setString(3, contents["tel"] as String?)
+                preparedStatement?.setString(4, contents["about"] as String?)
+                preparedStatement?.setInt(5, contents["price"] as Int)
+                preparedStatement?.setBytes(6,  contents["photo"] as ByteArray)
+
+                preparedStatement?.execute()
+
+                preparedStatement?.close()
+
+                con?.close()
+
+                val newFragment =
+                    InfoDialogFragment("Eğitmen başarıyla eklendi.")
+                newFragment.show(parentFragmentManager, "info")
+
+                /*
+                if (isSuccessful == true) {
+                    val newFragment =
+                        InfoDialogFragment("Eğitmen başarıyla eklendi.")
+                    newFragment.show(parentFragmentManager, "info")
+                }
+                else
+                {
+                    val newFragment =
+                        InfoDialogFragment("Eğitmen eklenemedi.")
+                    newFragment.show(parentFragmentManager, "info")
+                }
+                 */
+
+            } catch (e: SQLException) {
+                val newFragment = InfoDialogFragment(e.toString())
+                newFragment.show(parentFragmentManager, "info")
+            }
+
+            /*
             val db = MainActivity.DatabaseObject.writableDatabase
 
             val rowId = db.insert("egitmenler", null, getEgitmenContentValues())
 
-            if (rowId != -1L) {
-                val newFragment =
-                    InfoDialogFragment("Eğitmen başarıyla eklendi.")
-                newFragment.show(parentFragmentManager, "info")
-            }
-            else
-            {
-                val newFragment =
-                    InfoDialogFragment("Eğitmen eklenemedi.")
-                newFragment.show(parentFragmentManager, "info")
-            }
+
+             */
         }
     }
 

@@ -13,18 +13,12 @@ import androidx.navigation.fragment.NavHostFragment
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-        public  lateinit var DatabaseObject : DatabaseHelper
-    }
-
     private lateinit var binding: ContentMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ContentMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        DatabaseObject = DatabaseHelper(applicationContext)
     }
 
 }

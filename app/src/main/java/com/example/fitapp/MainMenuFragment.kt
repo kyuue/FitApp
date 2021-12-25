@@ -19,6 +19,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.fitapp.databinding.EgitmenEkleBinding
 import com.example.fitapp.databinding.MainMenuBinding
+import java.sql.DriverManager
 
 
 class MainMenuFragment : Fragment(R.layout.main_menu) {
