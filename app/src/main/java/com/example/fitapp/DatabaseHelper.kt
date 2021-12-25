@@ -101,10 +101,5 @@ class DatabaseHelper(/*context: Context?*/) { // : SQLiteOpenHelper(context, DAT
                 ""
             )
         }
-
-        fun runSql(sql : String)
-        {
-
-        }
     }
 }
