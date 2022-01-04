@@ -25,9 +25,13 @@
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/fragment_settings.xml" value="0.2957427536231884" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/fragment_slideshow.xml" value="0.2957427536231884" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/fragment_transform.xml" value="0.2957427536231884" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/giris_cikis_log.xml" value="0.5" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/kalori_hesapla.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/kitle_indeks_hesapla.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/main_menu.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/musteri_ekle.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/musteri_entry_list_element.xml" value="0.34692028985507245" />
+        <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/musteri_giris_cikis_list_element.xml" value="0.34692028985507245" />
         <entry key="..\:/AndroidStudioProjects/FitApp/app/src/main/res/layout/nav_header_main.xml" value="0.2957427536231884" />
       </map>
     </option>

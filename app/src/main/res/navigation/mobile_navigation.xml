@@ -31,6 +31,12 @@
         <action
             android:id="@+id/action_mainMenuFragment_to_kaloriHesapFragment"
             app:destination="@id/kaloriHesapFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_musteriEkleFragment"
+            app:destination="@id/musteriEkleFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_girisCikisLogFragment"
+            app:destination="@id/girisCikisLogFragment" />
     </fragment>
     <fragment
         android:id="@+id/egitmenSecFragment"
@@ -62,6 +68,22 @@
         android:label="KaloriHesapFragment" >
         <action
             android:id="@+id/action_kaloriHesapFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musteriEkleFragment"
+        android:name="com.example.fitapp.MusteriEkleFragment"
+        android:label="MusteriEkleFragment" >
+        <action
+            android:id="@+id/action_musteriEkleFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/girisCikisLogFragment"
+        android:name="com.example.fitapp.GirisCikisLogFragment"
+        android:label="GirisCikisLogFragment" >
+        <action
+            android:id="@+id/action_girisCikisLogFragment_to_mainMenuFragment"
             app:destination="@id/mainMenuFragment" />
     </fragment>
 </navigation>

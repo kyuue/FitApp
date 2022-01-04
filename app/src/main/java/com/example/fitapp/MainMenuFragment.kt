@@ -64,6 +64,14 @@ class MainMenuFragment : Fragment(R.layout.main_menu) {
         binding?.goToKaloriHesaplaButton?.setOnClickListener{
             findNavController().navigate(R.id.kaloriHesapFragment)
         }
+
+        binding?.goToMusteriEkleButton?.setOnClickListener{
+            findNavController().navigate(R.id.musteriEkleFragment)
+        }
+
+        binding?.goToGirisCikisLogButton?.setOnClickListener{
+            findNavController().navigate(R.id.girisCikisLogFragment)
+        }
     }
 
     override fun onDestroyView() {

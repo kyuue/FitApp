@@ -101,5 +101,37 @@ class DatabaseHelper(/*context: Context?*/) { // : SQLiteOpenHelper(context, DAT
                 ""
             )
         }
+
+        fun getCustomerName(customerId : Int) : String {
+
+            val con = DatabaseHelper.createConnection()
+
+            val stmt = con?.prepareStatement("SELECT * FROM customer WHERE id = ?")
+
+            stmt?.setInt(1, customerId)
+
+            val cursor = stmt?.executeQuery()
+
+            if (cursor?.next() == true)
+            {
+                val name = cursor.getString(cursor.findColumn("name")) + " " + cursor.getString(cursor.findColumn("surname"))
+
+                cursor.close()
+
+                stmt.close()
+
+                con.close()
+
+                return name
+            }
+
+            cursor?.close()
+
+            stmt?.close()
+
+            con?.close()
+
+            return ""
+        }
     }
 }
