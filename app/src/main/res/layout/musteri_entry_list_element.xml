@@ -22,7 +22,8 @@
             android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="5"
+            android:gravity="end"
+            android:text="id"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -31,7 +32,8 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="emre tekin"
+            android:gravity="end"
+            android:text="isim"
             app:layout_constraintStart_toEndOf="@+id/idText"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -40,8 +42,8 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="giriş"
-            app:layout_constraintEnd_toStartOf="@+id/dateText"
+            android:gravity="end"
+            android:text="tür"
             app:layout_constraintStart_toEndOf="@+id/nameText"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -50,7 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="25.12.2021 11.45"
+            android:gravity="end"
+            android:text="tarih"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
