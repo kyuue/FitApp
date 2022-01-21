@@ -1,4 +1,4 @@
-/*Appium Test  Projesi - FitApp
+/*FitApp Otomasyon Testi
  * Muhammed Baki Caki - 21.01.2021
  * */
 package fitApp_Test;
